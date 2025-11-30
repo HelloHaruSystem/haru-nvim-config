@@ -26,7 +26,7 @@ return {
 	update_in_insert = false,
       })
       -- global setup over
-      
+
       -- specific lsp configs
       -- Lua Language Server (lua_ls)
       vim.lsp.config('lua_ls', {
@@ -39,8 +39,21 @@ return {
 	},
       })
 
+      -- Zig Language Server (zls)
+      vim.lsp.config('zls', {
+	settings = {
+	  Zig = {
+	    diagnostics = {
+	      globals = { 'vim' },
+	    },
+	  },
+	},
+      })
+
+
       -- enable the lsp's
       vim.lsp.enable('lua_ls')
+      vim.lsp.enable('zls')
     end,
   }
 }
