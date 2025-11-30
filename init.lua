@@ -4,7 +4,7 @@ require("config.lazy")
 
 -- global 4 Space indenting
 vim.opt.shiftwidth = 4
--- clipboard
+-- yank and put from clipboard
 vim.opt.clipboard = "unnamedplus"
 
 -- Key remaps
