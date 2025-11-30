@@ -40,15 +40,7 @@ return {
       })
 
       -- Zig Language Server (zls)
-      vim.lsp.config('zls', {
-	settings = {
-	  Zig = {
-	    diagnostics = {
-	      globals = { 'vim' },
-	    },
-	  },
-	},
-      })
+      vim.lsp.config('zls', {})
 
 
       -- enable the lsp's
