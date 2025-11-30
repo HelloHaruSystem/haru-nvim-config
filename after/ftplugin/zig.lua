@@ -1,9 +1,5 @@
--- Lua language configs
+-- .zig specific configs
 local set = vim.opt_local
-
--- 2 space indenting for .lua files
-set.shiftwidth = 2
-set.tapstop = 4
 
 -- Line number & relative line number
 set.number = true
