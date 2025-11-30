@@ -4,8 +4,8 @@ require("config.lazy")
 
 -- global 4 Space indenting
 vim.opt.shiftwidth = 4
-vim.opt.tapsop = 4
-vim.expandtab = true              -- Insert spaces instead of \t
+vim.opt.tabstop = 4
+vim.opt.expandtab = true              -- Insert spaces instead of \t
 -- yank and put from clipboard
 vim.opt.clipboard = "unnamedplus"
 
