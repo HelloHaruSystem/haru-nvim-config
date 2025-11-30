@@ -8,6 +8,9 @@ vim.opt.expandtab = true
 -- Clipboard setting
 vim.opt.clipboard = "unnamedplus"
 
+-- always fat cursor
+vim.o.guicursor = ""
+
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
