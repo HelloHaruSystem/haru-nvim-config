@@ -19,8 +19,8 @@ return {
       -- global diagnostic setup (Done Once)
       vim.diagnostic.config({
         virtual_text = {
-          severity = { min = vim.diagnostic.severity.WARN }, 
-          source = true, 
+          severity = { min = vim.diagnostic.severity.WARN },
+          source = true,
         },
         signs = true,
         update_in_insert = false,
@@ -42,7 +42,7 @@ return {
             })
           end
         end,
-        })
+      })
       -- global setup over
 
       -- specific lsp configs
@@ -51,7 +51,7 @@ return {
         settings = {
           Lua = {
             diagnostics = {
-              globals = {'vim'}, 
+              globals = { 'vim' },
             },
           },
         },
