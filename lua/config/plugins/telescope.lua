@@ -17,6 +17,8 @@ return {
       }
       require('telescope').load_extension('fzf')
 
+      -- TODO: Disable for certain directory like node modules
+
       -- Telescope mappings
       local builtin = require('telescope.builtin')
       -- Find Project Files
