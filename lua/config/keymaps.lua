@@ -23,3 +23,12 @@ vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover Documentation' }
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Yanking and Putting
+-- Paste over selection without yanking the deleted text
+vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste without yanking deleted text" })
+
+-- Delete to black hole register (doesn't affect clipboard)
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], { desc = "Delete to black hole register" })
+
+-- Keep copied text after pasting over selection
+vim.keymap.set("v", "p", [["_dP]], { desc = "Paste and keep clipboard" })
