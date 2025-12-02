@@ -1,6 +1,6 @@
-[*.lua]
+[*.c]
 indent_style = space
-indent_size = 2
+indent_size = 4
 
 [*.zig]
 indent_style = space
@@ -35,6 +35,18 @@ indent_style = space
 indent_size = 2
 
 [*.json]
+indent_style = space
+indent_size = 2
+
+[*.yaml]
+indent_style = space
+indent_size = 2
+
+[*.yml]
+indent_style = space
+indent_size = 2
+
+[*.lua]
 indent_style = space
 indent_size = 2
 

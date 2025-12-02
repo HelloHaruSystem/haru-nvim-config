@@ -13,16 +13,17 @@ return {
         },
         -- Configure specific formatters. Mason will install
         formatters_by_ft = {
-          lua = { "stylua" },
+          c = { "clang-format" },
           zig = { "lsp" },
           javascript = { "prettier" },
           typescript = { "prettier" },
           javascriptreact = { "prettier" },
           typescriptreact = { "prettier" },
-          json = { "prettier" },
-          yaml = { "prettier" },
           html = { "prettier" },
           css = { "prettier" },
+          json = { "prettier" },
+          yaml = { "prettier" },
+          lua = { "stylua" },
           markdown = { "prettier" },
 
           -- Fallback for other filetypes (just trims trailing whitespace)

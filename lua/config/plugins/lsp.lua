@@ -12,7 +12,7 @@ return {
     dependencies = { "mason-org/mason.nvim" },
     opts = {
       ensure_installed = {
-        "lua_ls", -- lua
+        "clangd", -- C/C++
         "zls", -- Zig
         "ts_ls", -- Typescript
         "html", -- HTML
@@ -20,6 +20,8 @@ return {
         "tailwindcss", -- Tailwind CSS
         "lemminx", -- XML
         "jsonls", -- JSON
+        "yamlls", -- YAML
+        "lua_ls", -- lua
         "marksman", -- Markdown
       },
       -- automatic_enable is true by default
@@ -33,8 +35,9 @@ return {
     config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {
-          "stylua", -- Lua Formatter
+          "clang-format", -- C/C++ Formatter
           "prettier", -- JS/TS/JSON/YAML Formatter
+          "stylua", -- Lua Formatter
         },
       })
     end,
@@ -70,16 +73,8 @@ return {
       -- specific lsp configs
       -- TODO: change some default configs
 
-      -- Lua Language Server (lua_ls)
-      vim.lsp.config("lua_ls", {
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-          },
-        },
-      })
+      -- C/C++ Language Server
+      vim.lsp.config("clangd", {})
 
       -- Zig Language Server (zls)
       vim.lsp.config("zls", {})
@@ -101,6 +96,20 @@ return {
 
       -- JSON Language Server
       vim.lsp.config("jsonls", {})
+
+      -- YAML Language Server
+      vim.lsp.config("yamlls", {})
+
+      -- Lua Language Server (lua_ls)
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { "vim" },
+            },
+          },
+        },
+      })
 
       -- Markdown
       vim.lsp.config("marksman", {})

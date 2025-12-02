@@ -19,6 +19,7 @@ return {
           "css",
           "xml",
           "json",
+          "yaml",
           "lua",
           "vim",
           "vimdoc",
