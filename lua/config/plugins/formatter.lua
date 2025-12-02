@@ -20,6 +20,7 @@ return {
           java = { "lsp" },
           cs = { "lsp" },
           csharp = { "lsp" },
+          elixir = { "mix" },
           javascript = { "prettier" },
           typescript = { "prettier" },
           javascriptreact = { "prettier" },

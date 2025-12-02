@@ -14,6 +14,8 @@ return {
           "zig",
           "java",
           "c_sharp",
+          "elixir",
+          "heex", -- Elixir Phoenix templates
           "javascript",
           "typescript",
           "html",

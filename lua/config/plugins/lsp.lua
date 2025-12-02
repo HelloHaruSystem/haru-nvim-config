@@ -17,6 +17,7 @@ return {
         "zls", -- Zig
         "jdtls", -- Java
         "omnisharp", -- C#
+        "elixirls", -- Elixir
         "ts_ls", -- Typescript
         "html", -- HTML
         "cssls", -- CSS
@@ -97,6 +98,9 @@ return {
         organize_imports_on_format = true,
         enable_import_completion = true,
       })
+
+      -- Elixir Language Server
+      vim.lsp.config("elixirls", {})
 
       -- Typescript Language Server (ts_ls)
       vim.lsp.config("ts_ls", {})
