@@ -82,7 +82,7 @@ local config = {
   init_options = {
     bundles = {}, -- We'll add debugger bundles here later if needed
   },
-
-  -- Start JDTLS or attach to existing instance
-  jdtls.start_or_attach(config),
 }
+
+-- Start JDTLS or attach to existing instance
+jdtls.start_or_attach(config)
