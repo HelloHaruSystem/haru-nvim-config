@@ -18,6 +18,9 @@ return {
         "html", -- HTML
         "cssls", -- CSS
         "tailwindcss", -- Tailwind CSS
+        "lemminx", -- XML
+        "jsonls", -- JSON
+        "marksman", -- Markdown
       },
       -- automatic_enable is true by default
     },
@@ -92,6 +95,15 @@ return {
 
       -- Tailwind CSS Language Server
       vim.lsp.config("tailwindcss", {})
+
+      -- XML Language Server
+      vim.lsp.config("lemminx", {})
+
+      -- JSON Language Server
+      vim.lsp.config("jsonls", {})
+
+      -- Markdown
+      vim.lsp.config("marksman", {})
 
       -- Mason-lspconfig handles this now!
       -- enable the lsp's

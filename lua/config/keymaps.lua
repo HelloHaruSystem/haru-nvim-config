@@ -17,7 +17,7 @@ vim.keymap.set("v", "<leader>x", ":lua<CR>")
 
 -- LSP Features Mappings
 -- Show Hover Documentation (K)
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'LSP Hover Documentation' })
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover Documentation" })
 
 -- Move select blocks in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

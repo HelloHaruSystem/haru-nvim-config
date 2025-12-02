@@ -8,4 +8,3 @@ set.tabstop = 2
 -- Line number & relative line number
 set.number = true
 set.relativenumber = true
-

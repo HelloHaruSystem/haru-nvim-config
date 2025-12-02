@@ -23,6 +23,7 @@ return {
           yaml = { "prettier" },
           html = { "prettier" },
           css = { "prettier" },
+          markdown = { "prettier" },
 
           -- Fallback for other filetypes (just trims trailing whitespace)
           _ = { "trim_whitespace" },
