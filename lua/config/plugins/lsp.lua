@@ -1,15 +1,36 @@
 -- nvim-lspconfig
 return {
-  {
+    -- Mason core
+    {
+      "mason-org/mason.nvim",
+      opts = {}
+    },
+
+    -- Mason-lspconfig bridge
+    {
+      "mason-org/mason-lspconfig.nvim",
+      dependencies = { "mason-org/mason.nvim" },
+      opts = {
+        ensure_installed = {
+          "lua_ls", -- lua
+          "zls",    -- Zig
+          "ts_ls"   -- Typescript
+        },
+        -- automatic_enable is true by default
+      }
+    },
+    
+    -- Lsp config
+    {
     "neovim/nvim-lspconfig",
     dependencies = {
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
       {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua", 
         opts = {
           library = {
-            -- See the configuration section for more details
-            -- Load luvit types when the `vim.uv` word is found
             { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           },
         },
@@ -26,7 +47,7 @@ return {
         update_in_insert = false,
       })
 
-      -- Formatting
+      -- Formatting on save
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -60,10 +81,13 @@ return {
       -- Zig Language Server (zls)
       vim.lsp.config('zls', {})
 
-
+      -- Typescript Language Server (ts_ls)
+      vim.lsp.config('ts_ls', {})
+ 
+      -- Mason-lspconfig handles this now!
       -- enable the lsp's
-      vim.lsp.enable('lua_ls')
-      vim.lsp.enable('zls')
+      -- vim.lsp.enable('lua_ls')
+      -- vim.lsp.enable('zls')
     end,
   }
 }
