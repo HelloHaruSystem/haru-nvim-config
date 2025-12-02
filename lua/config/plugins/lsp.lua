@@ -3,7 +3,7 @@ return {
   -- Mason core
   {
     "mason-org/mason.nvim",
-    opts = {}
+    opts = {},
   },
 
   -- Mason-lspconfig bridge
@@ -13,11 +13,13 @@ return {
     opts = {
       ensure_installed = {
         "lua_ls", -- lua
-        "zls",    -- Zig
-        "ts_ls"   -- Typescript
+        "zls", -- Zig
+        "ts_ls", -- Typescript
+        "html", -- HTML
+        "cssls", -- CSS
       },
       -- automatic_enable is true by default
-    }
+    },
   },
 
   -- Mason Tool Installer (Formatters & Linters)
@@ -27,7 +29,7 @@ return {
     config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {
-          "stylua",   -- Lua Formatter
+          "stylua", -- Lua Formatter
           "prettier", -- JS/TS/JSON/YAML Formatter
         },
       })
@@ -62,27 +64,35 @@ return {
       })
 
       -- specific lsp configs
+      -- TODO: change some default configs
+
       -- Lua Language Server (lua_ls)
-      vim.lsp.config('lua_ls', {
+      vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
             diagnostics = {
-              globals = { 'vim' },
+              globals = { "vim" },
             },
           },
         },
       })
 
       -- Zig Language Server (zls)
-      vim.lsp.config('zls', {})
+      vim.lsp.config("zls", {})
 
       -- Typescript Language Server (ts_ls)
-      vim.lsp.config('ts_ls', {})
+      vim.lsp.config("ts_ls", {})
+
+      -- HTML Language Server
+      vim.lsp.config("html", {})
+
+      -- CSS Language Server
+      vim.lsp.config("cssls", {})
 
       -- Mason-lspconfig handles this now!
       -- enable the lsp's
       -- vim.lsp.enable('lua_ls')
       -- vim.lsp.enable('zls')
     end,
-  }
+  },
 }

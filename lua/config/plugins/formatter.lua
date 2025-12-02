@@ -15,10 +15,12 @@ return {
         formatters_by_ft = {
           lua = { "stylua" },
           zig = { "lsp" },
-          typescript = { "prettier" },
           javascript = { "prettier" },
+          typescript = { "prettier" },
           json = { "prettier" },
           yaml = { "prettier" },
+          html = { "prettier" },
+          css = { "prettier" },
 
           -- Fallback for other filetypes (just trims trailing whitespace)
           _ = { "trim_whitespace" },
