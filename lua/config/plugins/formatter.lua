@@ -13,6 +13,8 @@ return {
         },
         -- Configure specific formatters. Mason will install
         formatters_by_ft = {
+          sh = { "shfmt" },
+          bash = { "shfmt" },
           c = { "clang-format" },
           zig = { "lsp" },
           javascript = { "prettier" },

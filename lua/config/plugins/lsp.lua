@@ -12,6 +12,7 @@ return {
     dependencies = { "mason-org/mason.nvim" },
     opts = {
       ensure_installed = {
+        "bashls", -- Bash/Shell
         "clangd", -- C/C++
         "zls", -- Zig
         "ts_ls", -- Typescript
@@ -35,6 +36,7 @@ return {
     config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {
+          "shfmt", -- Bash/Shell Formatter
           "clang-format", -- C/C++ Formatter
           "prettier", -- JS/TS/JSON/YAML Formatter
           "stylua", -- Lua Formatter
@@ -72,6 +74,9 @@ return {
 
       -- specific lsp configs
       -- TODO: change some default configs
+
+      -- Bash Language Server
+      vim.lsp.config("bashls", {})
 
       -- C/C++ Language Server
       vim.lsp.config("clangd", {})
