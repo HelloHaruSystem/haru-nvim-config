@@ -1,15 +1,50 @@
 -- nvim-lspconfig
 return {
+  -- Mason core
+  {
+    "mason-org/mason.nvim",
+    opts = {}
+  },
+
+  -- Mason-lspconfig bridge
+  {
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = { "mason-org/mason.nvim" },
+    opts = {
+      ensure_installed = {
+        "lua_ls", -- lua
+        "zls",    -- Zig
+        "ts_ls"   -- Typescript
+      },
+      -- automatic_enable is true by default
+    }
+  },
+
+  -- Mason Tool Installer (Formatters & Linters)
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "mason-org/mason.nvim" },
+    config = function()
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          "stylua",   -- Lua Formatter
+          "prettier", -- JS/TS/JSON/YAML Formatter
+        },
+      })
+    end,
+  },
+
+  -- Lsp config
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      "mason-org/mason.nvim",
+      "mason-org/mason-lspconfig.nvim",
       {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua",
         opts = {
           library = {
-            -- See the configuration section for more details
-            -- Load luvit types when the `vim.uv` word is found
             { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           },
         },
@@ -26,25 +61,6 @@ return {
         update_in_insert = false,
       })
 
-      -- Formatting
-      vim.api.nvim_create_autocmd('LspAttach', {
-        callback = function(args)
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if not client then return end
-
-          if client.supports_method('textDocument/formatting', 0) then
-            -- Format the current buffer on save
-            vim.api.nvim_create_autocmd('BufWritePre', {
-              buffer = args.buf,
-              callback = function()
-                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-              end
-            })
-          end
-        end,
-      })
-      -- global setup over
-
       -- specific lsp configs
       -- Lua Language Server (lua_ls)
       vim.lsp.config('lua_ls', {
@@ -60,10 +76,13 @@ return {
       -- Zig Language Server (zls)
       vim.lsp.config('zls', {})
 
+      -- Typescript Language Server (ts_ls)
+      vim.lsp.config('ts_ls', {})
 
+      -- Mason-lspconfig handles this now!
       -- enable the lsp's
-      vim.lsp.enable('lua_ls')
-      vim.lsp.enable('zls')
+      -- vim.lsp.enable('lua_ls')
+      -- vim.lsp.enable('zls')
     end,
   }
 }
