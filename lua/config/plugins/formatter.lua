@@ -17,6 +17,8 @@ return {
           bash = { "shfmt" },
           c = { "clang-format" },
           zig = { "lsp" },
+          cs = { "lsp" },
+          csharp = { "lsp" },
           javascript = { "prettier" },
           typescript = { "prettier" },
           javascriptreact = { "prettier" },

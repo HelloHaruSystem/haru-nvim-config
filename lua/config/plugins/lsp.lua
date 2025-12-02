@@ -15,6 +15,7 @@ return {
         "bashls", -- Bash/Shell
         "clangd", -- C/C++
         "zls", -- Zig
+        "omnisharp", -- C#
         "ts_ls", -- Typescript
         "html", -- HTML
         "cssls", -- CSS
@@ -83,6 +84,14 @@ return {
 
       -- Zig Language Server (zls)
       vim.lsp.config("zls", {})
+
+      -- C# Language Server (omnisharp)
+      vim.lsp.config("omnisharp", {
+        cmd = { "OmniSharp" },
+        enable_roslyn_analyzers = true,
+        organize_imports_on_format = true,
+        enable_import_completion = true,
+      })
 
       -- Typescript Language Server (ts_ls)
       vim.lsp.config("ts_ls", {})
