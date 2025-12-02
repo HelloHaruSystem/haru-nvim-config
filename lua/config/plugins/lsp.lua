@@ -17,6 +17,7 @@ return {
         "ts_ls", -- Typescript
         "html", -- HTML
         "cssls", -- CSS
+        "tailwindcss", -- Tailwind CSS
       },
       -- automatic_enable is true by default
     },
@@ -88,6 +89,9 @@ return {
 
       -- CSS Language Server
       vim.lsp.config("cssls", {})
+
+      -- Tailwind CSS Language Server
+      vim.lsp.config("tailwindcss", {})
 
       -- Mason-lspconfig handles this now!
       -- enable the lsp's

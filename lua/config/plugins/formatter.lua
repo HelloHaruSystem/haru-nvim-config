@@ -17,6 +17,8 @@ return {
           zig = { "lsp" },
           javascript = { "prettier" },
           typescript = { "prettier" },
+          javascriptreact = { "prettier" },
+          typescriptreact = { "prettier" },
           json = { "prettier" },
           yaml = { "prettier" },
           html = { "prettier" },
