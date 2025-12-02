@@ -15,6 +15,7 @@ return {
         "bashls", -- Bash/Shell
         "clangd", -- C/C++
         "zls", -- Zig
+        "jdtls", -- Java
         "omnisharp", -- C#
         "ts_ls", -- Typescript
         "html", -- HTML
@@ -84,6 +85,10 @@ return {
 
       -- Zig Language Server (zls)
       vim.lsp.config("zls", {})
+
+      -- Java Language Server
+      -- The Java plugin will handle this
+      -- Because a per-project setup is needed
 
       -- C# Language Server (omnisharp)
       vim.lsp.config("omnisharp", {
