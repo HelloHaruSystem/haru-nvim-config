@@ -23,6 +23,7 @@ return {
           "xml",
           "json",
           "yaml",
+          "python",
           "lua",
           "vim",
           "vimdoc",

@@ -25,6 +25,7 @@ return {
         "lemminx", -- XML
         "jsonls", -- JSON
         "yamlls", -- YAML
+        "basedpyright", -- Python
         "lua_ls", -- lua
         "marksman", -- Markdown
       },
@@ -42,6 +43,7 @@ return {
           "shfmt", -- Bash/Shell Formatter
           "clang-format", -- C/C++ Formatter
           "prettier", -- JS/TS/JSON/YAML Formatter
+          "ruff", -- Python
           "stylua", -- Lua Formatter
         },
       })
@@ -122,6 +124,19 @@ return {
 
       -- YAML Language Server
       vim.lsp.config("yamlls", {})
+
+      -- Python Language Server
+      vim.lsp.config("basedpyright", {
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "standard",
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
+      })
 
       -- Lua Language Server (lua_ls)
       vim.lsp.config("lua_ls", {

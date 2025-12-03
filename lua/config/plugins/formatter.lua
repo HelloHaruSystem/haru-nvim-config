@@ -29,6 +29,7 @@ return {
           css = { "prettier" },
           json = { "prettier" },
           yaml = { "prettier" },
+          python = { "ruff_format" },
           lua = { "stylua" },
           markdown = { "prettier" },
 
