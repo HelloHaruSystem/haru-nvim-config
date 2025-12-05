@@ -95,7 +95,11 @@ return {
 
       -- C# Language Server (omnisharp)
       vim.lsp.config("omnisharp", {
-        cmd = { vim.fn.stdpath("data") .. "mason/packages/omnisharp/libexec/OmniSharp" },
+        cmd = {
+          vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp",
+          "--languageserver",
+        },
+        root_dir = vim.fs.root(0, { "*.csproj", "*.sln", ".git" }),
         enable_roslyn_analyzers = true,
         organize_imports_on_format = true,
         enable_import_completion = true,
