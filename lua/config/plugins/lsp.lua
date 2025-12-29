@@ -45,6 +45,7 @@ return {
           "prettier", -- JS/TS/JSON/YAML Formatter
           "ruff", -- Python
           "stylua", -- Lua Formatter
+          "eslint_d", -- JS/TS linter
         },
       })
     end,

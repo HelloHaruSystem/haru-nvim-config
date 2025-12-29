@@ -8,8 +8,13 @@ return {
 
       -- Configure linters by filetype
       lint.linters_by_ft = {
+        -- Python
         python = { "ruff" },
-        -- Potentially add support for JS/TS stuff
+        -- JS/TS stuff
+        javascript = { "eslint" },
+        typescript = { "eslint" },
+        javascriptreact = { "eslint" },
+        typescriptreact = { "eslint" },
       }
 
       -- Create autocommand to trigger linting
