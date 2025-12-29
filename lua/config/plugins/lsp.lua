@@ -19,6 +19,7 @@ return {
         "omnisharp", -- C#
         "elixirls", -- Elixir
         "ts_ls", -- Typescript
+        "angularls", -- Angular
         "html", -- HTML
         "cssls", -- CSS
         "tailwindcss", -- Tailwind CSS
@@ -121,6 +122,9 @@ return {
 
       -- Typescript Language Server (ts_ls)
       vim.lsp.config("ts_ls", {})
+
+      -- Angular Language Server
+      vim.lsp.config("angularls", {})
 
       -- HTML Language Server
       vim.lsp.config("html", {})

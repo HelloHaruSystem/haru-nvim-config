@@ -18,6 +18,7 @@ return {
           "heex", -- Elixir Phoenix templates
           "javascript",
           "typescript",
+          "angular", -- Angular Templates
           "html",
           "css",
           "xml",
