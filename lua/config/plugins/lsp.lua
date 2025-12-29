@@ -77,6 +77,14 @@ return {
         },
         signs = true,
         update_in_insert = false,
+        float = {
+          focusable = false,
+          style = "minimal",
+          border = "rounded",
+          source = true,
+          header = "",
+          prefix = "",
+        },
       })
 
       -- specific lsp configs
