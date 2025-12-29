@@ -36,7 +36,7 @@ local config = {
 
     -- Logging settings
     "-Dlog.protocol=true", -- Log LSP protocol messages
-    "-Dlog.level=ALL", -- Log everything (can change to WARN for less noise)
+    "-Dlog.level=WARN", -- Log WARN (can change to ALL to log everything)
 
     -- JVM memory settings
     "-Xmx1g", -- Give JDTLS max 1GB of RAM
