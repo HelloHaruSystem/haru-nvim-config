@@ -134,7 +134,19 @@ return {
       vim.lsp.config("cssls", {})
 
       -- Tailwind CSS Language Server
-      vim.lsp.config("tailwindcss", {})
+      vim.lsp.config("tailwindcss", {
+        filetypes = {
+          "html",
+          "css",
+          "scss",
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact",
+          "vue",
+          "svelte",
+        },
+      })
 
       -- XML Language Server
       vim.lsp.config("lemminx", {})
