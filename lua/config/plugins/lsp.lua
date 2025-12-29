@@ -93,15 +93,26 @@ return {
       -- The Java plugin will handle this
       -- Because a per-project setup is needed
 
+      -- Disable lspconfig's default omnisharp to avoid conflicts
+      vim.g.lspconfig_omnisharp_disable = true
+
       -- C# Language Server (omnisharp)
       vim.lsp.config("omnisharp", {
-        cmd = { "dotnet", vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll" },
-        root_dir = function(fname)
-          return vim.fs.root(fname, { "*.csproj", "*.sln", ".git" })
-        end,
-        enable_roslyn_analyzers = true,
-        organize_imports_on_format = true,
-        enable_import_completion = true,
+        cmd = {
+          "dotnet",
+          vim.fn.stdpath("data") .. "/mason/packages/omnisharp/libexec/OmniSharp.dll",
+          "--languageserver",
+        },
+        root_markers = { "*.csproj", "*.sln" },
+        settings = {
+          FormattingOptions = {
+            EnableEditorConfigSupport = true,
+          },
+          RoslynExtensionsOptions = {
+            EnableAnalyzersSupport = true,
+            EnableImportCompletion = true,
+          },
+        },
       })
 
       -- Elixir Language Server
