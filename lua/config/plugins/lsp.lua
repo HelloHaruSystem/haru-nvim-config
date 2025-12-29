@@ -113,6 +113,7 @@ return {
           RoslynExtensionsOptions = {
             EnableAnalyzersSupport = true,
             EnableImportCompletion = true,
+            EnableDecompilationSupport = true,
           },
         },
       })

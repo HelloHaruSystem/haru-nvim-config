@@ -45,3 +45,39 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   command = [[%s/\s\+$//e]],
 })
+
+-- LSP keymaps (only when LSP attaches)
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = augroup,
+  callback = function(e)
+    local opts = { buffer = e.buf }
+    -- Jump to where a function/variable is defined
+    vim.keymap.set("n", "gd", function()
+      if vim.bo.filetype == "cs" then
+        require("omnisharp_extended").lsp_definition()
+      else
+        vim.lsp.buf.definition()
+      end
+    end, opts)
+
+    -- Find all places where this symbol is used
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    -- Rename a symbol everywhere intelligently
+    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+    -- Show available code actions (fixes, refactors, imports)
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+
+    -- Jump to previous diagnostic/error
+    vim.keymap.set("n", "[d", function()
+      vim.diagnostic.jump({ count = -1 })
+    end, opts)
+
+    -- Jump to next diagnostic/error
+    vim.keymap.set("n", "]d", function()
+      vim.diagnostic.jump({ count = 1 })
+    end, opts)
+
+    -- Show error details in floating window
+    vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
+  end,
+})
