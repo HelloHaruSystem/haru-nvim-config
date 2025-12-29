@@ -97,7 +97,15 @@ return {
       vim.lsp.config("clangd", {})
 
       -- Zig Language Server (zls)
-      vim.lsp.config("zls", {})
+      vim.lsp.config("zls", {
+        settings = {
+          zls = {
+            enable_inlay_hints = true,
+            enable_snippets = true,
+            warn_style = true,
+          },
+        },
+      })
 
       -- Java Language Server
       -- The Java plugin will handle this
