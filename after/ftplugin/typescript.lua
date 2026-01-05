@@ -1,4 +1,4 @@
--- Typescript specifc language settings
+-- Typescript specific language settings
 local set = vim.opt_local
 
 set.shiftwidth = 2

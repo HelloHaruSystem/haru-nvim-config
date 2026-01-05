@@ -10,7 +10,6 @@ return {
     },
     config = function()
       require("telescope").setup({
-        -- Add ignore files here
         defaults = {
           file_ignore_patterns = { "node_modules", ".git/" },
         },
@@ -19,6 +18,11 @@ return {
         },
       })
       require("telescope").load_extension("fzf")
+
+      -- TODO: Disable for certain directory like node modules
+      defaults = {
+        file_ignore_patterns = { "node_modules", ".git/" },
+      }
 
       -- Telescope mappings
       local builtin = require("telescope.builtin")
