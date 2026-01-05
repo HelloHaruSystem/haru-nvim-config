@@ -27,9 +27,7 @@ return {
       -- Find Git Files
       vim.keymap.set("n", "<C-p>", builtin.git_files, { desc = "Telescope Find git files" })
       -- Project Search
-      vim.keymap.set("n", "<leader>ps", function()
-        builtin.grep_string({ search = vim.fn.input("Grep > ") })
-      end, { desc = "Telescope Project Search" })
+      vim.keymap.set("n", "<leader>ps", builtin.live_grep, { desc = "Telescope Live Grep" })
       -- Search help tags
       vim.keymap.set("n", "<leader>ph", builtin.help_tags, { desc = "Telescope Search Help Tags" })
     end,
