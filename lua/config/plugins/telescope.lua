@@ -12,7 +12,28 @@ return {
       require("telescope").setup({
         -- Add ignore files here
         defaults = {
-          file_ignore_patterns = { "node_modules", ".git/" },
+          file_ignore_patterns = {
+            -- Git"
+            ".git/",
+
+            -- Zig
+            "zig%-cache/",
+            "zig%-out/",
+
+            -- Node/Js
+            "node_modules/",
+            "%.lock",
+
+            -- Java
+            "target/",
+            "%.class",
+            "%.jar",
+
+            -- C#/.NET
+            "bin/",
+            "obj/",
+            "%.dll",
+          },
         },
         extensions = {
           fzf = {},
