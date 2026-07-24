@@ -12,6 +12,7 @@ return {
           "bash",
           "c",
           "zig",
+          "rust",
           "java",
           "c_sharp",
           "elixir",

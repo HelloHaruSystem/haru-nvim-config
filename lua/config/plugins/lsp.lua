@@ -15,6 +15,7 @@ return {
         "bashls", -- Bash/Shell
         "clangd", -- C/C++
         "zls", -- Zig
+        "rust_analyzer", -- Rust
         "jdtls", -- Java
         "omnisharp", -- C#
         "elixirls", -- Elixir
@@ -106,6 +107,9 @@ return {
           },
         },
       })
+
+      -- Rust Language Server
+      vim.lsp.config("rust_analyzer", {})
 
       -- Java Language Server
       -- The Java plugin will handle this
