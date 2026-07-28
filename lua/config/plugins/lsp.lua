@@ -16,6 +16,7 @@ return {
         "clangd", -- C/C++
         "zls", -- Zig
         "rust_analyzer", -- Rust
+        "fsautocomplete", -- F#
         "jdtls", -- Java
         "omnisharp", -- C#
         "elixirls", -- Elixir
@@ -48,6 +49,7 @@ return {
           "ruff", -- Python
           "stylua", -- Lua Formatter
           "eslint_d", -- JS/TS linter
+          "fantomas", -- F# Formatter
         },
       })
     end,
@@ -110,6 +112,9 @@ return {
 
       -- Rust Language Server
       vim.lsp.config("rust_analyzer", {})
+
+      -- F# Language Server (FsAutoComplete)
+      vim.lsp.config("fsautocomplete", {})
 
       -- Java Language Server
       -- The Java plugin will handle this

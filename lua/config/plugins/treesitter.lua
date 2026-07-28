@@ -13,6 +13,7 @@ return {
           "c",
           "zig",
           "rust",
+          "fsharp",
           "java",
           "c_sharp",
           "elixir",
