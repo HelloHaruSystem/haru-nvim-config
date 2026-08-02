@@ -29,6 +29,23 @@ end
 local function apply_transparency()
   vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+  vim.api.nvim_set_hl(0, "FoldColumn", { bg = "none" })
+end
+
+-- mini.statusline links its mode-indicator colors to Cursor/Diff*/IncSearch
+-- by default, none of which Omarchy themes curate for use as a wide UI bar
+-- (Cursor especially is often a jarring color meant for a 1-char block).
+-- Re-link to groups every theme styles intentionally as solid, readable
+-- backgrounds instead. Explicit (non-`default`) highlights survive mini's
+-- own `default = true` re-application on every ColorScheme event.
+local function fix_statusline_mode_colors()
+  vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", { link = "TabLineSel" })
+  vim.api.nvim_set_hl(0, "MiniStatuslineModeInsert", { link = "DiffAdd" })
+  vim.api.nvim_set_hl(0, "MiniStatuslineModeVisual", { link = "Visual" })
+  vim.api.nvim_set_hl(0, "MiniStatuslineModeReplace", { link = "DiffDelete" })
+  vim.api.nvim_set_hl(0, "MiniStatuslineModeCommand", { link = "DiffText" })
+  vim.api.nvim_set_hl(0, "MiniStatuslineModeOther", { link = "DiffChange" })
 end
 
 local theme_file = find_theme_file()
@@ -63,13 +80,17 @@ if colorscheme then
         vim.cmd.colorscheme(colorscheme)
       end
       apply_transparency()
+      fix_statusline_mode_colors()
     end,
   })
 
   -- Covers any later manual `:colorscheme` switch too.
   vim.api.nvim_create_autocmd("ColorScheme", {
     group = vim.api.nvim_create_augroup("OmarchyTransparency", { clear = true }),
-    callback = apply_transparency,
+    callback = function()
+      apply_transparency()
+      fix_statusline_mode_colors()
+    end,
   })
 end
 
